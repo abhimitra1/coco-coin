@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+body, html {
+  font-family: "Unkempt", serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.unkempt-regular {
+  font-family: "Unkempt", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.unkempt-bold {
+  font-family: "Unkempt", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
 /* Base styles */
 :root {
   --background-color: #f9fafb;
