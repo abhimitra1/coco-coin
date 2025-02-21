@@ -58,3 +58,50 @@ public fun mint(
 
   mint_cap.total_minted = mint_cap.total_minted + amount;
 }
+
+#[test_only]
+use sui::test_scenario;
+
+#[test]
+fun test_init() {
+  let publisher = @0x11;
+
+  let mut scenario = test_scenario::begin(publisher); {
+    let otw = COCO{};
+    init(otw, scenario.ctx());
+  };
+
+  scenario.next_tx(publisher);
+  {
+    let mint_cap = scenario.take_from_sender<MintCapability>();
+    let coco_coin = scenario.take_from_sender<coin::Coin<COCO>>();
+
+    assert!(mint_cap.total_minted == INITIAL_SUPPLY, EInvalidAmount);
+    assert!(coco_coin.balance().value() == INITIAL_SUPPLY, ESupplyExceeded);
+
+    scenario.return_to_sender(coco_coin);
+    scenario.return_to_sender(mint_cap);
+  };
+
+  scenario.next_tx(publisher);
+  {
+    let mut treasury_cap = scenario.take_from_sender<TreasuryCap<COCO>>();
+    let mut mint_cap = scenario.take_from_sender<MintCapability>();
+
+    mint(
+      &mut treasury_cap,
+      &mut mint_cap,
+      900_000_000_000_000_000,
+      scenario.ctx().sender(),
+      scenario.ctx()
+    );
+
+    assert!(mint_cap.total_minted == TOTAL_SUPPLY, EInvalidAmount);
+
+    scenario.return_to_sender(treasury_cap);
+    scenario.return_to_sender(mint_cap);
+  };
+
+  scenario.end();
+
+}
