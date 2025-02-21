@@ -20,7 +20,8 @@ Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-fram
 
 [addresses]
 coco_coin = "0x0"
-
+coco_community = "0x85b121568cda1b2168ffe1c75f11742c0d91ba20aa10dbcf224c867ce2382005"
+coco_cex = "0x6161a977f36de3a33141a077d2638f97dee769b5721f5143d5d74c73a40ecac6"
 # Named addresses will be accessible in Move as `@name`. They're also exported:
 # for example, `std = "0x1"` is exported by the Standard Library.
 # alice = "0xA11CE"
