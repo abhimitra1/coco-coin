@@ -1,0 +1,15 @@
+
+
+sui client ptb \
+--move-call 0x29ba13080a0ad0561b733093af14c4b776cad4a61c909982abc5d778843c43a7::coco::mint \
+@0x1a8e4caa2624bab27f545bf56bc832c9f126564e7c82ef06939b505a7d22c40c \
+@0x3158f06d9c3ec60c1d1fae91501afb952b621c6eaebf6df04f1c7520a1a0e89a \
+400_000_000_000_000_000 \
+@0x987b6efe8b6a36ec6c613dc975b915a851158e40ea8099141965611d1fc36896
+
+sui client ptb \
+--move-call <Package_id>::coco::mint \
+@<Treasury_cap> \
+@<Mint_cap>
+<Amount/400_000_000_000_000_000> \
+@<Recipient_address>
