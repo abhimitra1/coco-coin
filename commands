@@ -1,15 +1,30 @@
 
-
+//Minting
 sui client ptb \
---move-call 0x29ba13080a0ad0561b733093af14c4b776cad4a61c909982abc5d778843c43a7::coco::mint \
-@0x1a8e4caa2624bab27f545bf56bc832c9f126564e7c82ef06939b505a7d22c40c \
-@0x3158f06d9c3ec60c1d1fae91501afb952b621c6eaebf6df04f1c7520a1a0e89a \
+--move-call 0x10d3b26ee607e1d016bffabd929c07a6e4cab975fe75b81d07ba44c492fe324e::coco::mint \
+@0x4fb6e804f2a5fb1f5ae568ac60e313b1a914b69edea22e5f21314bd6e600c226 \
+50_000_000_000_000_000 \
+@0x85b121568cda1b2168ffe1c75f11742c0d91ba20aa10dbcf224c867ce2382005
+
+//Minting & locking
+sui client ptb \
+--move-call 0x10d3b26ee607e1d016bffabd929c07a6e4cab975fe75b81d07ba44c492fe324e::coco::mint_locked \
+@0x4fb6e804f2a5fb1f5ae568ac60e313b1a914b69edea22e5f21314bd6e600c226 \
+50_000_000_000_000_000 \
+@0x85b121568cda1b2168ffe1c75f11742c0d91ba20aa10dbcf224c867ce2382005 \
+120000 \
+@0x6
+
+//Unlocking
+sui client ptb \
+--move-call 0x10d3b26ee607e1d016bffabd929c07a6e4cab975fe75b81d07ba44c492fe324e::coco::withdraw_locked \
+@0xc551de83635dd59a99b9914f95410913937e8adfa665a8e5f4fbde20be9f1e1c \
+@0x6
+
+//boilerplate
+sui client ptb \
+--move-call <package_id>::coco::mint \
+@<mint_capability> \
 400_000_000_000_000_000 \
-@0x987b6efe8b6a36ec6c613dc975b915a851158e40ea8099141965611d1fc36896
+@<recepient_address> \
 
-sui client ptb \
---move-call <Package_id>::coco::mint \
-@<Treasury_cap> \
-@<Mint_cap>
-<Amount/400_000_000_000_000_000> \
-@<Recipient_address>
