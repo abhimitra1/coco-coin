@@ -110,8 +110,10 @@ const HomeView: FC = () => {
           <div className="max-w-3xl mx-auto mb-12">
             <div className="bg-gradient-to-br from-black/20 to-blue-900/10 p-8 rounded-2xl shadow-xl backdrop-blur-[2px] border border-cyan-200/20">
               <h3 className="text-3xl font-bold mb-4 text-cyan-200">Contract Address</h3>
-              <div className="flex items-center justify-center space-x-4">
-                <p className="text-lg text-cyan-50 font-mono">0x12342476127421487126248174785678</p>
+              <div className="flex items-center justify-center space-x-4" >
+                <a href="https://suiscan.xyz/devnet/coin/0xeb58e1c9c7fa135a2f14d56be70b832cdefeeb4d8a98cb83b214c57098a2f9a6::coco::COCO/txs">
+                  <p className="text-lg text-cyan-50 font-mono">0xeb58...f9a6::coco::COCO</p>
+                </a>
                 <button className="bg-cyan-500/20 hover:bg-cyan-500/30 p-2 rounded-lg transition-all"
                   onClick={() => navigator.clipboard.writeText('0x1234...5678')}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-cyan-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
